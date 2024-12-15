@@ -3,14 +3,16 @@ import 'package:jokes_app/services/joke_service.dart';
 import '../widgets/joke_card.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Joke Types'),
+        title: const Text('Joke Types'),
         actions: [
           IconButton(
-            icon: Icon(Icons.casino),
+            icon: const Icon(Icons.casino),
             onPressed: () {
               Navigator.pushNamed(context, '/random');
             },
@@ -21,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         future: ApiService.fetchJokeTypes(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
