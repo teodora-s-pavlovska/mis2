@@ -4,18 +4,20 @@ import 'package:jokes_app/screens/random_joke.dart';
 import 'screens/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Jokes App',
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(),
-        '/random': (context) => RandomJokeScreen(),
+        '/': (context) => const HomeScreen(),
+        '/random': (context) => const RandomJokeScreen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/jokes') {

@@ -6,7 +6,7 @@ import '../models/joke_model.dart';
 class JokesByTypeScreen extends StatelessWidget {
   final String type;
 
-  JokesByTypeScreen({required this.type});
+  const JokesByTypeScreen({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class JokesByTypeScreen extends StatelessWidget {
         future: ApiService.fetchJokesByType(type),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
